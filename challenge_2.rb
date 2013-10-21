@@ -1,6 +1,14 @@
-require './challenge_1.rb'
-# Line 1 effectively copy-pastes in any code you wrote in challenge_1.rb
-# It's similar to connecting an external stylesheet to an HTML file.
+def pmt(rate,n,amount)
+
+	top = 0.0
+	top = rate*(1+rate)**n
+	bot = 0.0
+	bot = (1+rate)**n-1
+	result = 0.0
+	result =amount*top/bot
+	return result 
+
+end
 
 # ===========
 # CHALLENGE 2
@@ -11,7 +19,7 @@ require './challenge_1.rb'
 loan_quotes = [
   { "bank" => "Elm Street Bank", "rate" => 0.013},
   { "bank" => "Oak Street Bank", "rate" => 0.009},
-  { "bank" => "Ash Street Bank", "rate" => 0.011}
+  { "bank" => "Ash Street Bank", "rate" => 0.011},
 ]
 
 # Let's ask our user for the parameters of the loan:
@@ -26,6 +34,11 @@ pv = gets.chomp.to_f
 #   For each option, tell the user how much the monthly payment will be to that bank.
 #   Re-use the pmt method that you defined in Challenge 1.
 
-# ====================
-# Your code goes here.
-# ====================
+# ===================
+loan_quotes.each do |b|
+
+
+puts "Your monthly payment at #{b["bank"]} will be #{pmt(b["rate"], nper, pv)}."
+
+end
+# ===================

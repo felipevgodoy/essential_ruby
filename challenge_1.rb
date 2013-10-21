@@ -13,8 +13,21 @@
 #   we usually have to do some research on how the task is done:
 #   http://en.wikipedia.org/wiki/Mortgage_calculator
 
-# =========================================
-# Your code to define the method goes here.
-# =========================================
+# ==========================================
+
+def pmt(rate,n,amount)
+
+	top = 0.0
+	top = rate*(1+rate)**n
+	bot = 0.0
+	bot = (1+rate)**n-1
+	result = 0.0
+	result =amount*top/bot
+	return result 
+
+end
+
+# ==========================================
 
 puts "Your monthly payment will be #{pmt(0.01, 60, 30000)}."
+
